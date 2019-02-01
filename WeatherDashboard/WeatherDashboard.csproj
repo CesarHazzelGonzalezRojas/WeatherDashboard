@@ -15,13 +15,36 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\src\app\counter\**" />
+    <Compile Remove="ClientApp\src\app\fetch-data\**" />
+    <Compile Remove="ClientApp\src\app\home\**" />
+    <Compile Remove="ClientApp\src\app\nav-menu\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\counter\**" />
+    <Content Remove="ClientApp\src\app\fetch-data\**" />
+    <Content Remove="ClientApp\src\app\home\**" />
+    <Content Remove="ClientApp\src\app\nav-menu\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\src\app\counter\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\fetch-data\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\home\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\nav-menu\**" />
+    <None Remove="ClientApp\src\app\counter\**" />
+    <None Remove="ClientApp\src\app\fetch-data\**" />
+    <None Remove="ClientApp\src\app\home\**" />
+    <None Remove="ClientApp\src\app\nav-menu\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ClimaController.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

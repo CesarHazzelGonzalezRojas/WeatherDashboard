@@ -4,9 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using System.Net;
+using static WeatherDashboard.Models.Clima;
 
 namespace WeatherDashboard
 {
+
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -63,5 +68,7 @@ namespace WeatherDashboard
                 }
             });
         }
+
+       
     }
 }

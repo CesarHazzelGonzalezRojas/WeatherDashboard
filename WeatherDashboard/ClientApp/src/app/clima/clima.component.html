@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row col-md-6">
+
+    <div class="row">
+      <div class="col-md">
+        <div style="display: block;">
+          <canvas baseChart width="600" height="600"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row col-md-6">
+    <div class="form-group d-flex col-md-6">
+      <label for="cmbCity">City</label>
+      <select [(ngModel)]="ciudadSeleccionada" (change)="capturar()" class="form-control col-md-6">
+        <option class="readonly" value="0">Select</option>
+        <option *ngFor="let dato of city">
+          {{dato}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group d-flex col-md-6">
+      <label>Scale</label>
+      <select [(ngModel)]="escalaSeleccionada" (change)="capturar()" class="form-control">
+        <option value="0">Select</option>
+        <option *ngFor="let dato of scale">
+          {{dato}}
+        </option>
+      </select>
+    </div>
+   
+  </div>
+  <div class="col-md-auto" style="margin-bottom: 10px">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of lineChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+ 
+
+
